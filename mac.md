@@ -6,7 +6,7 @@ Let's first discuss on MAC Address in brief , so  MAC stands for <mark> Media Ac
 - Permanent
 - Physical and **Assigned By Manufacturer**
 
-######So why we need to change our MAC Adress ?
+###### So why we need to change our MAC Adress ?
 
 > The answer is very simple :
 
@@ -24,7 +24,7 @@ root@kali:~# ifconfig
 
 ```
 
-![](img/mac/s1.jpeg)
+![](img/s1.jpeg)
 
 **ether represents the MAC Address** and **eth0** has  MAC Address of your system.
 
@@ -43,7 +43,7 @@ root@kali:~# ifconfig eth0 up
 ```
 
 AND NOW THE NEW MAC ADDRESS FOR eth0 is
-![](img/mac/s2.png)
+![](img/s2.png)
 
 It's just very simple process three line commands and your MAC Address can be changes just remember to enter a valid Mac Address 12 digits alphanumeric character each two digits seprated by : and you can also chnage the Mac address for your wlan0 interface if you are using a wifi adapter.
 
@@ -58,12 +58,11 @@ Our problems have very simple solutions we just need to import some Python modul
 
 The first one  is **subprocess** which helps to execute system commands
 
-(Basic Syntax for subprocess)
 
 
 
-```python
 Syntax (for subprocess):
+```python
        import subprocess
        subprocess.call("COMMAND", shell=TRUE)
 ```
@@ -127,7 +126,7 @@ mac_changer(options.interface, options.new_mac)
 
 So it's done you can give shot to check your tool.
 
-![](img/mac/s3.jpeg)
+![](img/s3.jpeg)
 
 
 
@@ -136,7 +135,7 @@ Our code is just fine running smoothly . But what if the user not enters a valid
 To get over this we are going to use one new module [Regex](https://docs.python.org/3/library/re.html) to match the regular expressions of MAC Address if you look any normal MAC Address its a 12 digit alphanumeric and seperated by colon you can use a very helpful website to create general expressions for MAC Address it's [Pythex](https://pythex.org/).Where you will found \w is used for matching alphanumeric.
 
 So if try to match it you would get a expressions like this
-![](img/mac/s4.jpeg)
+![](img/s4.jpeg)
 
 Now we get our desired expressions lets write some code.  
 
@@ -213,6 +212,13 @@ else:
 
 ```
 
-Give a shot to your perfect Tool
+Give a shot to your perfect Tool by : 
 
-![](img/mac/s5.jpeg)
+```
+root@kali:~# python mac_changer.py -i (interface_name) -m (new MAC Address)
+
+```
+
+![](img/s5.jpeg)
+
+
